@@ -1,4 +1,6 @@
 import React from "react"
+import {BiLogoFacebookSquare }from "react-icons/bi";
+import { Link } from "react-router-dom";
 
 const Head = () => {
   return (
@@ -16,7 +18,13 @@ const Head = () => {
             <label>Need Help?</label>
             <span>🏳️‍⚧️</span>
             <label>EN</label>
-            <span>🏳️‍⚧️</span>
+            <label >
+
+            <Link to='/'> 
+            <BiLogoFacebookSquare className="text-white " size={26} />
+            </Link>
+
+            </label>
             <label>USD</label>
           </div>
         </div>

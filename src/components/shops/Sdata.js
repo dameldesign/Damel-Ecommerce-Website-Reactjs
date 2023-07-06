@@ -19,7 +19,7 @@ const Sdata = {
       cover: "./images/shops/shops-3.png",
       name: "Sony Light",
       price: "20",
-      discount: "50 ",
+      discount: "506767 ",
     },
     {
       id: 10,
