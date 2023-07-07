@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&display=swap");
+
+
+:root {
+	--gen-color: #e80068;;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+}
+::selection {
+	background-color: var(--gen-color);
+	color: white;
+}
+/* @font-face {
+	font-family: "Avenir", sans-serif !important;
+	src: url("http://lektore-test.surge.sh/public/fonts/AvenirNextLTPro-Regular.otf");
+} */
+body {
+	font-family: "Poppins", sans-serif;
+    /* margin-top: 0%;
+    margin-bottom: 0%;
+    height: 100dvh; */
+    overscroll-behavior: none;
+    
+}
+
+
+*::-webkit-scrollbar {
+	width: 0px;
+	height: 0px;
+}
+
+*::-webkit-scrollbar-thumb {
+	background-color: var(--gen-color);
+	border-radius: 20px;
+}
+
+.chat_messages-tutee::-webkit-scrollbar-thumb {
+	background-color: var(--gen-color);
+	border-radius: 20px;
+}
+
+.chat_messages-tutee::-webkit-scrollbar {
+	width: 4px;
+}
+
+
+.scroll-display::-webkit-scrollbar {
+	display: none;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}

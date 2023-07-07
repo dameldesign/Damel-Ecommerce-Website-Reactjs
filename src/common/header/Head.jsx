@@ -1,5 +1,8 @@
 import React from "react"
 import {BiLogoFacebookSquare }from "react-icons/bi";
+import {MdContacts} from "react-icons/md";
+import {GrTwitter} from "react-icons/gr";
+import {AiFillInstagram} from "react-icons/ai";
 import { Link } from "react-router-dom";
 
 const Head = () => {
@@ -9,23 +12,17 @@ const Head = () => {
         <div className='container d_flex'>
           <div className='left row'>
             <i className='fa fa-phone'></i>
-            <label> +88012 3456 7894</label>
+            <label> +2348078058057</label>
+            <label> +2348099988057</label>
             <i className='fa fa-envelope'></i>
-            <label> support@ui-lib.com</label>
+            <a href="mailto:"> </a>
+            <label> enquiries@wstreams.com</label>
           </div>
-          <div className='right row RText'>
-            <label>Theme FAQ"s</label>
-            <label>Need Help?</label>
-            <span>🏳️‍⚧️</span>
-            <label>EN</label>
-            <label >
-
-            <Link to='/'> 
-            <BiLogoFacebookSquare className="text-white " size={26} />
-            </Link>
-
-            </label>
-            <label>USD</label>
+          <div className=' items-center justify-between p-2'>
+            <label> < BiLogoFacebookSquare size={18}/></label>
+            <label> < GrTwitter size={18}/></label>
+            <label> < AiFillInstagram size={18}/></label>
+           
           </div>
         </div>
       </section>
