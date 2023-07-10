@@ -27,12 +27,18 @@ const Registration = () => {
   const [showPassword, setShowPassword] = React.useState(false);
 
   //Inputs
+  const [usernameInput, setUsernameInput] = useState();
   const [emailInput, setEmailInput] = useState();
+  const [firstnameInput, setFirstnameInput] = useState();
+  const [lastnameInput, setLastnameInput] = useState();
   const [passwordInput, setPasswordInput] = useState();
   const [rememberMe, setRememberMe] = useState();
 
   // Inputs Errors
+  const [usernameError, setUsernameError] = useState(false);
   const [emailError, setEmailError] = useState(false);
+  const [firstnameError, setFirstnameError] = useState(false);
+  const [lastnameError, setLastnameError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
 
   // Overall Form Validity
@@ -48,6 +54,17 @@ const Registration = () => {
   // Label for Checkbox
   const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
+
+    // Validation for onBlur Username
+  const handleUsername = () => {
+    if (!usernameInput) {
+      setUsernameError(true);
+      return;
+    }
+
+    setUsernameError(false);
+  };
+
   // Validation for onBlur Email
   const handleEmail = () => {
     console.log(isEmail(emailInput));
@@ -57,6 +74,28 @@ const Registration = () => {
     }
 
     setEmailError(false);
+  };
+
+  // Validation for onBlur First
+
+    const handleFirstname = () => {
+    if (!firstnameInput) {
+      setFirstnameError(true);
+      return;
+    }
+
+    setFirstnameError(false);
+  };
+
+    // Validation for onBlur Last
+
+    const handleLastname = () => {
+    if (!lastnameInput) {
+      setLastnameError(true);
+      return;
+    }
+
+    setLastnameError(false);
   };
 
   // Validation for onBlur Password
@@ -78,9 +117,33 @@ const Registration = () => {
     setSuccess(null);
     //First of all Check for Errors
 
+        // IF username error is true
+    if (usernameError || !usernameInput) {
+      setFormValid(
+        "Username is set btw 5 - 15 characters long. Please Re-Enter"
+      );
+      return;
+    }
+
     // If Email error is true
     if (emailError || !emailInput) {
       setFormValid("Email is Invalid. Please Re-Enter");
+      return;
+    }
+
+           // IF firstname error is true
+    if (firstnameError || !firstnameInput) {
+      setFormValid(
+        "firstname is set btw 5 - 20 characters long. Please Re-Enter"
+      );
+      return;
+    }
+
+       // IF lastname error is true
+    if (lastnameError || !lastnameInput) {
+      setFormValid(
+        "lastname is set btw 5 - 20 characters long. Please Re-Enter"
+      );
       return;
     }
 
@@ -94,16 +157,38 @@ const Registration = () => {
     setFormValid(null);
 
     // Proceed to use the information passed
+    console.log("Username : " + usernameInput);
     console.log("Email : " + emailInput);
+     console.log("Firstname : " + firstnameInput);
+      console.log("Lastname : " + lastnameInput);
     console.log("Password : " + passwordInput);
     console.log("Remember : " + rememberMe);
 
     //Show Successfull Submittion
-    setSuccess("Form Submitted Successfully");
+    setSuccess("Registration Successful");
   };
 
   return (
     <div>
+
+        <div style={{ marginTop: "10px" }}>
+        <TextField
+          error={usernameError}
+          label="Username"
+          id="standard-basic"
+          variant="standard"
+          sx={{ width: "100%" }}
+          size="small"
+          value={usernameInput}
+          InputProps={{}}
+          onChange={(event) => {
+            setUsernameInput(event.target.value);
+          }}
+          onBlur={handleUsername}
+        />
+      </div>
+
+
       <div style={{ marginTop: "5px" }}>
         <TextField
           label="Email Address"
@@ -121,6 +206,42 @@ const Registration = () => {
           }}
         />
       </div>
+
+              <div style={{ marginTop: "10px" }}>
+        <TextField
+          error={firstnameError}
+          label="Firstname"
+          id="standard-basic"
+          variant="standard"
+          sx={{ width: "100%" }}
+          size="small"
+          value={firstnameInput}
+          InputProps={{}}
+          onChange={(event) => {
+            setUsernameInput(event.target.value);
+          }}
+          onBlur={handleFirstname}
+        />
+      </div>
+
+                    <div style={{ marginTop: "10px" }}>
+        <TextField
+          error={lastnameError}
+          label="Lastname"
+          id="standard-basic"
+          variant="standard"
+          sx={{ width: "100%" }}
+          size="small"
+          value={lastnameInput}
+          InputProps={{}}
+          onChange={(event) => {
+            setUsernameInput(event.target.value);
+          }}
+          onBlur={handleLastname}
+        />
+      </div>
+
+
       <div style={{ marginTop: "5px" }}>
         <FormControl sx={{ width: "100%" }} variant="standard">
           <InputLabel

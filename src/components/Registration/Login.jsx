@@ -18,8 +18,7 @@ const Login = () => {
   return (
     <section class="flex flex-col w-ful mx-auto overflow-hidden items-center bg-white  shadow-lg dark:bg-gray-800 md:flex-row-reverse md:h-[72rem]">
       <img src="" alt="" />{" "}
-      <div class="md:flex md:items-center md:justify-center md:w-[70%] h-full md:bg-gradient-secondary md:dark:bg-gray-800">
-        <img src="" alt="" />
+      <div class="md:flex md:items-center md:justify-center md:w-[60%] h-full md:bg-gray-700 md:dark:bg-gray-800 lg:bg-gradient-secondary  lg:bg-cover lg:bg-center lg:bg-no-repeat" >
         <div class="px-6 py-6 md:px-8 md:py-0">
           <h2 class="text-lg font-bold text-gray-700 dark:text-white md:text-gray-100 h-80 w-80">
             Sign Up For{" "}
@@ -37,8 +36,8 @@ const Login = () => {
       </div>
 
 
-      <div className="mx-auto p-10 w-[350px]">
-        <Paper elevation={3} style={{ padding: "10px", paddingBottom: "50px" }}>
+      <div className="mx-auto p-10 w-[350px] lg:w-[650px]">
+        <Paper elevation={3} style={{ padding: "40px", paddingBottom: "50px" }}>
           <div align="center">
             {checked ? (
               <Chip
