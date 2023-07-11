@@ -32,7 +32,9 @@ const Registration = () => {
   const [firstnameInput, setFirstnameInput] = useState();
   const [lastnameInput, setLastnameInput] = useState();
   const [passwordInput, setPasswordInput] = useState();
-  const [rememberMe, setRememberMe] = useState();
+  const [confirmPasswordInput, setConfirmPasswordInput] = useState();
+  const [rememberMe, setRememberMe] = useState(); 
+
 
   // Inputs Errors
   const [usernameError, setUsernameError] = useState(false);
@@ -112,6 +114,18 @@ const Registration = () => {
     setPasswordError(false);
   };
 
+  const handleConfirmPassword = () => {
+    if (confirmPasswordInput !== passwordInput) {
+      setFormValid("Passwords do not match. Please re-enter.");
+      return;
+    }
+  
+    setFormValid(null);
+  };
+  
+
+
+
   //handle Submittion
   const handleSubmit = () => {
     setSuccess(null);
@@ -154,6 +168,14 @@ const Registration = () => {
       );
       return;
     }
+
+    // If Confirm Password does not match
+  if (confirmPasswordInput !== passwordInput) {
+    setFormValid("Passwords do not match. Please re-enter.");
+    return;
+  }
+
+
     setFormValid(null);
 
     // Proceed to use the information passed
@@ -162,6 +184,7 @@ const Registration = () => {
      console.log("Firstname : " + firstnameInput);
       console.log("Lastname : " + lastnameInput);
     console.log("Password : " + passwordInput);
+    console.log("Confirm :" + passwordInput);
     console.log("Remember : " + rememberMe);
 
     //Show Successfull Submittion
@@ -273,6 +296,40 @@ const Registration = () => {
           />
         </FormControl>
       </div>
+
+      <div style={{ marginTop: "5px" }}>
+  <FormControl sx={{ width: "100%" }} variant="standard">
+    <InputLabel
+      error={formValid}
+      htmlFor="standard-adornment-confirm-password"
+    >
+      Confirm Password
+    </InputLabel>
+    <Input
+      error={formValid}
+      onBlur={handleConfirmPassword}
+      id="standard-adornment-confirm-password"
+      type={showPassword ? "text" : "password"}
+      onChange={(event) => {
+        setConfirmPasswordInput(event.target.value);
+      }}
+      value={confirmPasswordInput}
+      endAdornment={
+        <InputAdornment position="end">
+          <IconButton
+            aria-label="toggle password visibility"
+            onClick={handleClickShowPassword}
+            onMouseDown={handleMouseDownPassword}
+          >
+            {showPassword ? <VisibilityOff /> : <Visibility />}
+          </IconButton>
+        </InputAdornment>
+      }
+    />
+  </FormControl>
+</div>
+
+
 
       <div style={{ fontSize: "10px" }}>
         <Checkbox
