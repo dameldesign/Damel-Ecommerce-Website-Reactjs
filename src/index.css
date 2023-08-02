@@ -46,18 +46,3 @@ body {
 	background-color: var(--gen-color);
 	border-radius: 20px;
 }
-
-.chat_messages-tutee::-webkit-scrollbar {
-	width: 4px;
-}
-
-
-.scroll-display::-webkit-scrollbar {
-	display: none;
-}
-
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-	-webkit-appearance: none;
-	margin: 0;
-}

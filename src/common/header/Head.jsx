@@ -1,6 +1,5 @@
 import React from "react"
 import {BiLogoFacebookSquare }from "react-icons/bi";
-import {MdContacts} from "react-icons/md";
 import {GrTwitter} from "react-icons/gr";
 import {AiFillInstagram} from "react-icons/ai";
 import { Link } from "react-router-dom";
@@ -8,7 +7,7 @@ import { Link } from "react-router-dom";
 const Head = () => {
   return (
     <>
-      <section className='head'>
+      <section className='head md:none'>
         <div className='container d_flex'>
           <div className='left row'>
             <i className='fa fa-phone'></i>
